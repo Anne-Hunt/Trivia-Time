@@ -7,6 +7,13 @@ class ObservableAppState extends EventEmitter {
   /**@type {Trivia[]} */
 
   trivia = []
+
+
+  currentTrivia = null
+  currentQuestion = ''
+  currentChoices = null
+
+  indices = 0
 }
 
 export const AppState = createObservableProxy(new ObservableAppState())

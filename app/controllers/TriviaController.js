@@ -6,6 +6,8 @@ import { setHTML } from "../utils/Writer.js"
 export class TriviaController {
   constructor() {
     this.getTrivia()
+    AppState.on('trivia', this.setQuestion)
+    AppState.on('indices', this.drawQuestion)
   }
 
   getTrivia() {
@@ -13,12 +15,20 @@ export class TriviaController {
     triviaService.getTrivia()
   }
 
-  drawTrivia() {
-    console.log('trivia ready to be drawn')
-    const trivia = AppState.trivia
+  setQuestion() {
+    console.log('sending to service for question selection')
+    triviaService.setTrivia()
+  }
+
+  drawQuestion() {
+    console.log('question en route')
     let triviaDisplay = ''
-    trivia.forEach(trivia => triviaDisplay += trivia.TriviaCard)
+    triviaDisplay = AppState.currentQuestion
     setHTML('trivia-displayer', triviaDisplay)
+    console.log('trivia ready to be drawn')
+    let choiceDisplay = ''
+    choiceDisplay = AppState.currentChoices
+    setHTML('choices', choiceDisplay)
   }
 
 

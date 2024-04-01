@@ -13,6 +13,22 @@ class TriviaService {
     console.log('trivia landed', trivia)
     AppState.trivia = trivia
   }
+
+  setTrivia() {
+    console.log(AppState.indices)
+    let currentTrivia = AppState.currentTrivia
+    let indexNum = AppState.indices
+    currentTrivia = AppState.trivia[indexNum]
+    console.log(AppState.currentTrivia)
+    console.log(currentTrivia)
+    let question = currentTrivia.Question
+    let answers = currentTrivia.AllAnswers
+    console.log(question, answers)
+    AppState.currentQuestion = currentTrivia.Question
+    AppState.currentChoices = currentTrivia.AllAnswers
+    console.log(AppState.currentChoices, AppState.currentQuestion)
+    AppState.indices++
+  }
 }
 
 export const triviaService = new TriviaService()
