@@ -33,11 +33,13 @@ class TriviaService {
 
   correctAnswer() {
     AppState.playerPoints++
+    AppState.questionsAnswered++
     console.log('right', AppState.playerPoints)
   }
 
   wrongAnswer() {
     AppState.playerPoints--
+    AppState.questionsAnswered++
     console.log('wrong', AppState.playerPoints)
   }
 

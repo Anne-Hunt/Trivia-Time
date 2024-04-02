@@ -20,12 +20,13 @@
 
 <body>
   <!-- SECTION -->
-  <header class="container-fluid p-5">
-    <h1>Trivia Time</h1>
+  <header class="container-fluid justify-contents-center p-3">
+    <h1>Trivia <i class="mdi mdi-help-circle iconic"></i> Time</h1>
+
   </header>
 
   <!-- SECTION -->
-  <main class="container-fluid">
+  <main class="container-fluid p-3">
     <section class="row justify-content-center align-items-center">
       <div id="trivia-displayer" class="col-10">
 
@@ -34,17 +35,23 @@
       </div>
       </div>
     </section>
-    <section class="row justify-content-evenly align-items-center">
-      <h2>Score:</h2>
-      <div class="col-2">Total Points: <span id="points"></span></div>
-      <div class="col-2">Total Questions: <span id="question-qty"></span></div>
+    <section class="row justify-content-evenly align-items-center p-3 border border-light rounded bg-dark mx-2">
+      <div class="col-3">
+        <h2 class="text-start">Score Board</h2>
+      </div>
+      <div class="col-3">
+        <h3>Total Points: <span id="points"></h3></span>
+      </div>
+      <div class="col-3">
+        <h3>Total Questions: <span id="question-qty"></h3></span>
+      </div>
     </section>
 
     </mainclas>
 
     <!-- SECTION -->
     <footer class=" container-fluid sticy-bottom text-light">
-      <div class="text-center no-select p-4">
+      <div class="text-center no-select p-4 mt-2">
         <p class="mb-0"><small>Made by Anne Hunt</small></p>
       </div>
     </footer>

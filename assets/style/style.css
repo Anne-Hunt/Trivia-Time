@@ -27,12 +27,17 @@
 }
 
 body {
-    background-color: var(--c-indigo-muted);
+    background-color: var(--c-navy);
     color: var(--c-silver);
 }
 
 h1 {
     text-align: center;
-
     font-family: 'Rubik Microbe', sans-serif;
+}
+
+.iconic {
+    color: var(--c-yellow-muted);
+    font-size: 72pt;
+
 }
