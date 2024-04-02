@@ -8,6 +8,7 @@ export class TriviaController {
     this.getTrivia()
     AppState.on('trivia', this.setQuestion)
     AppState.on('indices', this.drawQuestion)
+    AppState.on('playerPoints', this.setQuestion)
   }
 
   getTrivia() {
@@ -31,7 +32,10 @@ export class TriviaController {
   }
 
   drawPoints() {
-
+    let pointsContent = AppState.playerPoints
+    let questionsQty = AppState.questionsAnswered
+    setHTML('points', pointsContent)
+    setHTML('question-qty', questionsQty)
   }
 
   drawQuestion() {
