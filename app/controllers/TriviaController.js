@@ -20,6 +20,14 @@ export class TriviaController {
     triviaService.setTrivia()
   }
 
+  correctAnswer() {
+    AppState.playerPoints++
+  }
+
+  wrongAnswer() {
+    AppState.playerPoints--
+  }
+
   drawQuestion() {
     console.log('question en route')
     let triviaDisplay = ''

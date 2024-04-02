@@ -26,9 +26,13 @@ class TriviaService {
     console.log(question, answers)
     AppState.currentQuestion = currentTrivia.Question
     AppState.currentChoices = currentTrivia.AllAnswers
-    console.log(AppState.currentChoices, AppState.currentQuestion)
+    console.log(AppState.currentQuestion)
+    console.log(AppState.currentChoices)
     AppState.indices++
   }
+
+
 }
+
 
 export const triviaService = new TriviaService()

@@ -13,39 +13,29 @@ export class Trivia {
 
   get Question() {
     return `
-
     <div class="row text-center text-dark bg-light border rounded">
       <h2>${this.question}</h2>
     </div>
-    <div id="choices" class="row justify-content-center align-items-center text-center g-2">
-    </div>
-</div>
     `
   }
 
-  get WrongAnswers() {
+  get Answers() {
     let choices = ''
     let string = ''
-    this.wrong.forEach(wrong => choices = `<div class="col-6 bg-light text-dark border rounded">${this.wrong}</div>`)
+    let wrongAnswers = '`<div onclick="app.TriviaController.wrongAnswer()" class="col-6 bg-light text-dark border rounded">${this.wrong}</div>`'
+    let correctAnswer = `<div id="correct" onclick="app.TriviaController.correctAnswer()" class="col-6 bg-light text-dark border rounded">${this.answer}</div>`
+    this.wrong.forEach(wrong => choices += wrongAnswers)
     string.concat(choices)
     return string
-  }
 
-  get CorrectAnswer() {
-    return `
-    <div id="correct" class="col-6 bg-light text-dark border rounded">${this.answer}</div>
-    `
-  }
-
-  get AllAnswers() {
     let answersHTML = ''
     let answers = this.WrongAnswers
-    answers.concat(this.CorrectAnswer)
     let answerarray = answers.split(',')
+    answerarray.sort()
+    answerarray.push(this.CorrectAnswer)
     answerarray.sort()
     answerarray.forEach(answer => answersHTML += answer)
     return answersHTML
   }
-
 
 }
