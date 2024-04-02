@@ -1,6 +1,8 @@
 
 //**@params {{category, question, answer, wrong, type, difficulty}} */
 
+import { AppState } from "../AppState.js"
+
 export class Trivia {
   constructor(data) {
     this.category = data.category
@@ -20,22 +22,29 @@ export class Trivia {
   }
 
   get Answers() {
-    let choices = ''
-    let string = ''
-    let wrongAnswers = '`<div onclick="app.TriviaController.wrongAnswer()" class="col-6 bg-light text-dark border rounded">${this.wrong}</div>`'
-    let correctAnswer = `<div id="correct" onclick="app.TriviaController.correctAnswer()" class="col-6 bg-light text-dark border rounded">${this.answer}</div>`
-    this.wrong.forEach(wrong => choices += wrongAnswers)
-    string.concat(choices)
-    return string
-
+    let AnswersArray = []
+    let fixedArray = []
     let answersHTML = ''
-    let answers = this.WrongAnswers
-    let answerarray = answers.split(',')
-    answerarray.sort()
-    answerarray.push(this.CorrectAnswer)
-    answerarray.sort()
-    answerarray.forEach(answer => answersHTML += answer)
+    let correctAnswer = `<div id="correct" onclick="app.TriviaController.correctAnswer()" class="col-6 bg-light text-dark border rounded">${this.answer}</div>`
+
+    for (let i = 0; i < this.wrong.length; i++) {
+      const key = "key"
+      fixedArray.push({ [key]: this.wrong[i] })
+      let wrongAnswerDiv = `<div id="wrong" onclick="app.TriviaController.wrongAnswer()" class="col-6 bg-light text-dark border rounded">${fixedArray[i].key}</div>`
+      AnswersArray.push(wrongAnswerDiv)
+    }
+    AnswersArray.push(correctAnswer)
+    console.log(AnswersArray)
+    const shuffledArray = AnswersArray.sort((a, b) => 0.5 - Math.random())
+    shuffledArray.forEach(answer => answersHTML += answer)
     return answersHTML
   }
 
+  static get Points() {
+    return `${AppState.playerPoints}`
+  }
+
+  static get QtyQuestions() {
+    return `${AppState.questionsAnswered}`
+  }
 }

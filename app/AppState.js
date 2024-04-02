@@ -16,6 +16,7 @@ class ObservableAppState extends EventEmitter {
   indices = 0
 
   playerPoints = 0
+  questionsAnswered = 0
 }
 
 export const AppState = createObservableProxy(new ObservableAppState())

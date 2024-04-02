@@ -21,11 +21,17 @@ export class TriviaController {
   }
 
   correctAnswer() {
-    AppState.playerPoints++
+    triviaService.correctAnswer()
+    this.drawPoints()
   }
 
   wrongAnswer() {
-    AppState.playerPoints--
+    triviaService.wrongAnswer()
+    this.drawPoints()
+  }
+
+  drawPoints() {
+
   }
 
   drawQuestion() {

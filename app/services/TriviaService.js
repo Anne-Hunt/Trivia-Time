@@ -22,13 +22,23 @@ class TriviaService {
     console.log(AppState.currentTrivia)
     console.log(currentTrivia)
     let question = currentTrivia.Question
-    let answers = currentTrivia.AllAnswers
+    let answers = currentTrivia.Answers
     console.log(question, answers)
     AppState.currentQuestion = currentTrivia.Question
-    AppState.currentChoices = currentTrivia.AllAnswers
+    AppState.currentChoices = currentTrivia.Answers
     console.log(AppState.currentQuestion)
     console.log(AppState.currentChoices)
     AppState.indices++
+  }
+
+  correctAnswer() {
+    AppState.playerPoints++
+    console.log('right', AppState.playerPoints)
+  }
+
+  wrongAnswer() {
+    AppState.playerPoints--
+    console.log('wrong', AppState.playerPoints)
   }
 
 
