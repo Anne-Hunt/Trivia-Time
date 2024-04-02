@@ -1,11 +1,12 @@
 import { AppState } from "../AppState.js";
 import { Trivia } from "../models/Trivia.js";
+import { loadState, saveState } from "../utils/Store.js";
 
 class TriviaService {
 
   async getTrivia() {
     console.log('get exists')
-    const response = await fetch('https://opentdb.com/api.php?amount=10&difficulty=easy')
+    const response = await fetch('https://opentdb.com/api.php?amount=50')
     console.log('fetch fetched fetchingly')
     const questions = await response.json()
     console.log('Json ran away with all the stress', questions)
@@ -43,6 +44,17 @@ class TriviaService {
     console.log('wrong', AppState.playerPoints)
   }
 
+  saveLocal() {
+    saveState('playerPoints', AppState.playerPoints)
+    saveState('questionsAnswered', AppState.questionsAnswered)
+  }
+
+  loadLocal() {
+    const pointsLocal = loadState('points', Number)
+    AppState.playerPoints = pointsLocal
+    const questionsLocal = loadState('questionsAnswered', Number)
+    AppState.questionsAnswered = questionsLocal
+  }
 
 }
 

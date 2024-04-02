@@ -15,7 +15,7 @@ export class Trivia {
 
   get Question() {
     return `
-    <div class="row text-center text-dark bg-light border rounded p-3">
+    <div class="row text-center text-dark bg-light border rounded p-3 border border-5 border-warning shadow">
       <h2>${this.question}</h2>
     </div>
     `
@@ -25,12 +25,12 @@ export class Trivia {
     let AnswersArray = []
     let fixedArray = []
     let answersHTML = ''
-    let correctAnswer = `<div class="col-6 py-3 g-3"><button id="correct" onclick="app.TriviaController.correctAnswer()" class="p-4 bg-light text-dark border rounded btn w-50">${this.answer}</button></div>`
+    let correctAnswer = `<div class="col-6 py-3 g-3"><button id="correct" onclick="app.TriviaController.correctAnswer()" class="p-4 bg-light text-dark border border-warning border-3 rounded btn w-50 shadow">${this.answer}</button></div>`
 
     for (let i = 0; i < this.wrong.length; i++) {
       const key = "key"
       fixedArray.push({ [key]: this.wrong[i] })
-      let wrongAnswerDiv = `<div class="col-6 py-3 g-3"> <button id="wrong" onclick="app.TriviaController.wrongAnswer()" class="p-4 bg-light text-dark border rounded btn w-50">${fixedArray[i].key}</button></div>`
+      let wrongAnswerDiv = `<div class="col-6 py-3 g-3"> <button id="wrong" onclick="app.TriviaController.wrongAnswer()" class="p-4 bg-light text-dark border border-warning border-3 rounded btn w-50 shadow">${fixedArray[i].key}</button></div>`
       AnswersArray.push(wrongAnswerDiv)
     }
     AnswersArray.push(correctAnswer)

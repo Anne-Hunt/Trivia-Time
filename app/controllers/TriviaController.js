@@ -9,6 +9,8 @@ export class TriviaController {
     AppState.on('trivia', this.setQuestion)
     AppState.on('indices', this.drawQuestion)
     AppState.on('playerPoints', this.setQuestion)
+    AppState.on('playerPoints', triviaService.saveLocal)
+    triviaService.loadLocal()
   }
 
   getTrivia() {
