@@ -39,5 +39,8 @@ h1 {
 .iconic {
     color: var(--c-yellow-muted);
     font-size: 72pt;
+}
 
+.queryview {
+    min-height: 60dvh;
 }
